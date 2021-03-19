@@ -18,6 +18,6 @@ public class RestaurantDetails {
   private String openTime;
   private String closeTime;
   private String description;
-  private List<Category> categories;
+  private List<Category> headings;
 
 }
