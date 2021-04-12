@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestaurantController {
 
-  private String imageToBase64(String image) throws IOException {
+  public static String imageToBase64(String image) throws IOException {
     try (Stream<Path> paths = Files.walk(Paths.get("src", "main", "resources", "images", "restaurant"))) {
       return paths.filter(Files::isRegularFile)
           .filter(path -> path.getFileName().toString().contains(image))
@@ -90,6 +90,18 @@ public class RestaurantController {
                 60, "Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce", "NIKKEI.MA"),
             new Item("15", imageToBase64("TUNA-SALMON-CHIRASHI.jpg"), "TUNA SALMON CHIRASHI",
                 60, "Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce", "NIKKEI.MA")
+//            new Item("13", imageToBase64("SALMON-CHIRACHI.png"), "SALMON CHIRACHI",
+//                55, "Sashimi saumon, riz vinaigré , sésame, soja sauce", "NIKKEI.MA"),
+//            new Item("14", imageToBase64("SALMON-AVOCADO-CHIRACHI.png"), "SALMON AVOCADO CHIRACHI",
+//                60, "Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce", "NIKKEI.MA"),
+//            new Item("15", imageToBase64("TUNA-SALMON-CHIRASHI.jpg"), "TUNA SALMON CHIRASHI",
+//                60, "Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce", "NIKKEI.MA"),
+//            new Item("13", imageToBase64("SALMON-CHIRACHI.png"), "SALMON CHIRACHI",
+//                55, "Sashimi saumon, riz vinaigré , sésame, soja sauce", "NIKKEI.MA"),
+//            new Item("14", imageToBase64("SALMON-AVOCADO-CHIRACHI.png"), "SALMON AVOCADO CHIRACHI",
+//                60, "Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce", "NIKKEI.MA"),
+//            new Item("15", imageToBase64("TUNA-SALMON-CHIRASHI.jpg"), "TUNA SALMON CHIRASHI",
+//                60, "Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce", "NIKKEI.MA")
         )),
         new Category("5", "Yakitori", asList(
             new Item("16", imageToBase64("CHICKEN-BALLS.png"), "CHICKEN BALL\'S",
